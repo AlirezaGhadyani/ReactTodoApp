@@ -1,14 +1,22 @@
 import React from "react";
 
-const TodoInput = () => {
+const TodoInput = ({ getInputText }) => {
+  const getInputValue = (e) => {
+    getInputText(e.target.value);
+  };
   return (
     <React.Fragment>
-      <form class="todo-form">
-        <div class="alert"></div>
+      <form className="todo-form">
+        <div className="alert"></div>
 
         <div className="form-controll">
-          <input type="text" id="todo-inp" placeholder="type here" />
-          <button type="submit" class="sub-btn">
+          <input
+            type="text"
+            id="todo-inp"
+            placeholder="type here"
+            onChange={getInputValue}
+          />
+          <button type="submit" className="sub-btn">
             add
           </button>
         </div>
